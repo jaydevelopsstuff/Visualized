@@ -27,22 +27,6 @@ void Display::setResizable(bool resizable) {
     glfwWindowHint(GLFW_RESIZABLE, resizable);
 }
 
-void Display::setKeyboardActionCallback(GLFWkeyfun callback) {
-    Visualized::Keyboard::setKeyboardActionCallback(window, callback);
-}
-
-void Display::enableDefaultCursor() {
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-}
-
-void Display::hideDefaultCursor() {
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-}
-
-void Display::disableDefaultCursor() {
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-}
-
 GLFWwindow* Display::getWindow() const {
     return window;
 }

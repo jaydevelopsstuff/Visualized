@@ -17,12 +17,6 @@ namespace Visualized {
 
             static void setResizable(bool resizable);
 
-            void setKeyboardActionCallback(GLFWkeyfun callback);
-
-            void enableDefaultCursor();
-            void hideDefaultCursor();
-            void disableDefaultCursor();
-
             GLFWwindow* getWindow() const;
 
             Keyboard& getKeyboard();
