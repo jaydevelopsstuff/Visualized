@@ -15,13 +15,17 @@ namespace Visualized {
 
             void createWindow();
 
-            static void setResizable(bool resizable);
+            void setFramebufferResizeCallback(GLFWframebuffersizefun callback);
 
             GLFWwindow* getWindow() const;
 
             Keyboard& getKeyboard();
 
             Mouse& getMouse();
+
+            static void setResizable(bool resizable);
+
+            static void setDisplayFramebufferResizeCallback(GLFWwindow* window, GLFWframebuffersizefun callback);
 
         private:
             GLFWwindow* window = nullptr;

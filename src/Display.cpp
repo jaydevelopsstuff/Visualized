@@ -21,10 +21,18 @@ void Display::createWindow() {
     if(window == nullptr) throw VisualizedException();
 
     glfwMakeContextCurrent(window);
+    // Set a default viewport
+    glViewport(0, 0, windowWidth, windowHeight);
+
+    // Set the resize callback to a default that resizes the viewport
+    /*auto viewportResize = [](GLFWwindow*, s32 width, s32 height) {
+        glViewport(0, 0, width, height);
+    };
+    setFramebufferResizeCallback(viewportResize);*/
 }
 
-void Display::setResizable(bool resizable) {
-    glfwWindowHint(GLFW_RESIZABLE, resizable);
+void Display::setFramebufferResizeCallback(GLFWframebuffersizefun callback) {
+    setDisplayFramebufferResizeCallback(window, callback);
 }
 
 GLFWwindow* Display::getWindow() const {
@@ -39,4 +47,12 @@ Keyboard& Display::getKeyboard() {
 Mouse& Display::getMouse() {
     if(mouse == nullptr) mouse = new Mouse(window);
     return *mouse;
+}
+
+void Display::setResizable(bool resizable) {
+    glfwWindowHint(GLFW_RESIZABLE, resizable);
+}
+
+void Display::setDisplayFramebufferResizeCallback(GLFWwindow* window, GLFWframebuffersizefun callback) {
+    glfwSetFramebufferSizeCallback(window, callback);
 }
