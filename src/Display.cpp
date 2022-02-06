@@ -35,6 +35,10 @@ void Display::setFramebufferResizeCallback(GLFWframebuffersizefun callback) {
     setDisplayFramebufferResizeCallback(window, callback);
 }
 
+bool Display::isWindowExitRequested() const {
+    return glfwWindowShouldClose(window);
+}
+
 GLFWwindow* Display::getWindow() const {
     return window;
 }

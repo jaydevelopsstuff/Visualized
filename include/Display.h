@@ -17,6 +17,8 @@ namespace Visualized {
 
             void setFramebufferResizeCallback(GLFWframebuffersizefun callback);
 
+            bool isWindowExitRequested() const;
+
             GLFWwindow* getWindow() const;
 
             Keyboard& getKeyboard();
