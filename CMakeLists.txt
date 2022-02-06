@@ -5,8 +5,13 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(OpenGL REQUIRED)
 
+add_subdirectory(lib/GLFW)
+include_directories(${OPENGL_INCLUDE_DIRS})
+
 file(GLOB_RECURSE source_files ./src/*)
 add_library(${PROJECT_NAME} ${source_files})
+
+target_link_libraries(${PROJECT_NAME} GL GLFW)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
