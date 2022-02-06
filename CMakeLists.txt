@@ -4,8 +4,7 @@ project(Visualized VERSION 1.0.0 DESCRIPTION "")
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(OpenGL REQUIRED)
-
-add_subdirectory(lib/GLFW)
+find_package(glfw3 REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 
 file(GLOB_RECURSE source_files ./src/*)
