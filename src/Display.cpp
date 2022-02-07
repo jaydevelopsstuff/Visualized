@@ -21,14 +21,6 @@ void Display::createWindow() {
     if(window == nullptr) throw VisualizedException();
 
     glfwMakeContextCurrent(window);
-    // Set a default viewport
-    glViewport(0, 0, windowWidth, windowHeight);
-
-    // Set the resize callback to a default that resizes the viewport
-    /*auto viewportResize = [](GLFWwindow*, s32 width, s32 height) {
-        glViewport(0, 0, width, height);
-    };
-    setFramebufferResizeCallback(viewportResize);*/
 }
 
 void Display::setFramebufferResizeCallback(GLFWframebuffersizefun callback) {
